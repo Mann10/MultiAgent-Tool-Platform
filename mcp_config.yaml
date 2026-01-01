@@ -1,0 +1,23 @@
+# MCP Server configuration for support router PoC
+# All servers use stdio transport for simplicity
+
+mcp_servers:
+  - name: database
+    type: stdio
+    command: python
+    args:
+      - -m
+      - mcp_servers.database_server
+    description: Mock customer database with orders and refund processing
+    enabled: true
+
+  - name: email
+    type: stdio
+    command: python
+    args:
+      - -m
+      - mcp_servers.email_server
+    description: Mock email service for notifications
+    enabled: true
+
+  
